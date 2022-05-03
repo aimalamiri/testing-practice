@@ -1,49 +1,38 @@
 const Calculator = require("./Calculator");
 
-describe('Calculator tests', () => {
-  let calculator;
+let calculator = new Calculator();
 
-  beforeEach(() => {
-    calculator = new Calculator();
+describe.each([
+  [2, 3, 5],
+  [10, 20, 30],
+  [25, 25, 50]
+])('Check the addtion', (a, b, expected) => {
+  test(`returns ${expected}`, () => {
+    expect(calculator.add(a, b)).toEqual(expected);
   })
+});
 
-  test('For 2 + 3 return 5', () => {
-     expect(calculator.add(2, 3)).toEqual(5);
-     expect(calculator.add(10, 20)).toEqual(30);
-  });
+describe.each([
+  [25, 5, 20],
+  [100, 50, 50],
+  [300, 30, 270]
+])('Check the addtion', (a, b, expected) => {
+  test(`returns ${expected}`, () => {
+    expect(calculator.subtract(a, b)).toEqual(expected);
+  })
+});
 
-  test('For 10 + 20 return 30', () => {
-     expect(calculator.add(10, 20)).toEqual(30);
-  });
-  
-  test('For 25 + 25 return 50', () => {
-     expect(calculator.add(25, 25)).toEqual(50);
-  });
+describe.each([
+  [10, 10, 100],
+  [4, 15, 60],
+  [8, 2, 16]
+])('Check the addtion', (a, b, expected) => {
+  test(`returns ${expected}`, () => {
+    expect(calculator.multiply(a, b)).toEqual(expected);
+  })
+});
 
-  test('For 25 - 5 return 20', () => {
-     expect(calculator.subtract(25, 5)).toEqual(20);
-  });
-  
-  test('For 100 - 50 return 50', () => {
-     expect(calculator.subtract(100, 50)).toEqual(50);
-  });
-  
-  test('For 300 - 30 return 270', () => {
-     expect(calculator.subtract(300, 30)).toEqual(270);
-  });
-
-   test('For 5 * 6  return 30', () => {
-     expect(calculator.multiply(5, 6)).toEqual(30);
-   });
-   
-   test('For 10 * 10  return 100', () => {
-     expect(calculator.multiply(10, 10)).toEqual(100);
-   });
-   
-   test('For 4 * 15  return 60', () => {
-     expect(calculator.multiply(4, 15)).toEqual(60);
-   });
-   
+describe('Calculator tests', () => {
    test('For 100 / 5  return 20', () => {
      expect(calculator.divide(100, 5)).toEqual(20);
    });
