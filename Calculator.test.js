@@ -31,4 +31,17 @@ describe('Calculator tests', () => {
   test('For 300 - 30 return 270', () => {
      expect(calculator.subtract(300, 30)).toEqual(270);
   });
+
+   test('For 5 * 6  return 30', () => {
+     expect(calculator.multiply(5, 6)).toEqual(30);
+   });
+   
+   test('For 10 * 10  return 100', () => {
+     expect(calculator.multiply(10, 10)).toEqual(100);
+   });
+   
+   test('For 4 * 15  return 60', () => {
+     expect(calculator.multiply(4, 15)).toEqual(60);
+   });
+  
 });
