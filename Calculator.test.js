@@ -43,5 +43,16 @@ describe('Calculator tests', () => {
    test('For 4 * 15  return 60', () => {
      expect(calculator.multiply(4, 15)).toEqual(60);
    });
-  
+   
+   test('For 100 / 5  return 20', () => {
+     expect(calculator.divide(100, 5)).toEqual(20);
+   });
+   
+   test('For 0 / 5  throw an Error', () => {
+     expect(() => calculator.divide(0, 5)).toThrow();
+   });
+   
+   test('For 100 / 0  throw an Error', () => {
+     expect(() => calculator.divide(100, 0)).toThrow();
+   });
 });
